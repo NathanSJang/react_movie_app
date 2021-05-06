@@ -6,7 +6,9 @@ import SectionTitle from "./components/SectionTitle";
 import SearchBox from "./components/SearchBox";
 import AddNomination from "./components/AddNomination";
 import RemoveNomination from "./components/RemoveNomination";
-import MovieERR from "./components/MovieERR";
+import NoMovie from "./components/NoMovie";
+import NoNomination from "./components/NoNomination";
+
 import * as API from "./utilities/OMDbAPI";
 
 import './App.css';
@@ -58,23 +60,28 @@ function saveToLocalStorage(item) {
         {(movies.length > 0) 
         ? 
           <MovieList
-            MovieERR={MovieERR}
             movies={movies} 
             NominationBtn={AddNomination}
             handleAddNomination={handleAddNomination}
           />
-        : <MovieERR />
+        : 
+          <NoMovie />
         }
       </div>
       <div className="heading">
         <SectionTitle title="Nominations" />
       </div>
       <div className="row">
-        <MovieList 
-          movies={nominations} 
-          NominationBtn={RemoveNomination}
-          handleAddNomination={handleRemoveNomination}
-        />
+        {(nominations.length > 0) 
+        ?
+          <MovieList 
+            movies={nominations} 
+            NominationBtn={RemoveNomination}
+            handleAddNomination={handleRemoveNomination}
+          />
+        :
+          <NoNomination />
+        }
       </div>
     </Container>
   );

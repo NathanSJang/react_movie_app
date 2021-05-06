@@ -1,5 +1,5 @@
 
-export default function MovieList({ MovieERR, movies, NominationBtn, handleAddNomination }) {
+export default function MovieList({ movies, NominationBtn, handleAddNomination }) {
   return (
     <>
       {movies.map((movie, idx) => 

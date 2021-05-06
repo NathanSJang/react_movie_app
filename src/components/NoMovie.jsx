@@ -1,7 +1,9 @@
 import { Typography } from "@material-ui/core"
 
-export default function MoiveERR() {
+export default function NoMovie() {
   return (
+    <>
     <Typography>No Movies</Typography>
+    </>
   );
 }
