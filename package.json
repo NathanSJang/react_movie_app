@@ -1,5 +1,8 @@
 {
+<<<<<<< HEAD
   "homepage": "https://nathansjang.github.io/react_movie_app/",
+=======
+>>>>>>> adcc5e09dd677b2bd2be44e379bc0f69d765aa8d
   "name": "react_movies",
   "version": "0.1.0",
   "private": true,
