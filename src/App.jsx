@@ -1,44 +1,40 @@
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { Container } from "@material-ui/core";
 import MovieList from "./components/MovieList";
-import * as API from "./utilities/OMDbAPI"
+import SectionTitle from "./components/SectionTitle";
+import SearchBox from "./components/SearchBox";
+import * as API from "./utilities/OMDbAPI";
 
 import './App.css';
 
 function App() {
-  const [movies, setMovies] = useState([ {
-    "Title": "Star Wars: Episode IV - A New Hope",
-    "Year": "1977",
-    "imdbID": "tt0076759",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BNzVlY2MwMjktM2E4OS00Y2Y3LWE3ZjctYzhkZGM3YzA1ZWM2XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
-},
-{
-    "Title": "Star Wars: Episode V - The Empire Strikes Back",
-    "Year": "1980",
-    "imdbID": "tt0080684",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BYmU1NDRjNDgtMzhiMi00NjZmLTg5NGItZDNiZjU5NTU4OTE0XkEyXkFqcGdeQXVyNzkwMjQ5NzM@._V1_SX300.jpg"
-},
-{
-    "Title": "Star Wars: Episode VI - Return of the Jedi",
-    "Year": "1983",
-    "imdbID": "tt0086190",
-    "Type": "movie",
-    "Poster": "https://m.media-amazon.com/images/M/MV5BOWZlMjFiYzgtMTUzNC00Y2IzLTk1NTMtZmNhMTczNTk0ODk1XkEyXkFqcGdeQXVyNTAyODkwOQ@@._V1_SX300.jpg"
-},]);
+  const [movies, setMovies] = useState([]);
+  const [searchVal, setSearchVal] = useState('');
 
-  useEffect(() => {
-    API.getMoives()
-      .then(data => setMovies(data.Search))
-  }, []);
+  
+  
+  useEffect((searchval) => {
+    console.log(searchVal)
+    if(searchVal) {
+      API.getMoives(searchVal)
+        .then(data =>  {
+          if(data.Search) {
+            setMovies(data.Search)
+          }
+        })
+    }
+}, [searchVal]);
 
   return (
     <Container className="moive-list">
-        <div className="row">
-          <MovieList movies={movies} />
-        </div>
+      <div className="heading">
+        <SectionTitle title="Movies" />
+        <SearchBox searchVal={searchVal} setSearchVal={setSearchVal} />
+      </div>
+      <div className="row">
+        <MovieList movies={movies} />
+      </div>
     </Container>
   );
 }

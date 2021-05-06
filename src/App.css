@@ -12,3 +12,10 @@ body {
 .moive-poster {
   margin-right: 2vmin;
 }
+.heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4vmin;
+  margin-bottom: 4vmin;
+}
