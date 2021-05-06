@@ -1,5 +1,5 @@
-import { Typography } from "@material-ui/core"
-import awardImg from "../Images/award.jpg"
+import { Typography } from "@material-ui/core";
+import awardImg from "../Images/award.jpg";
 
 export default function NoNomination() {
   return (

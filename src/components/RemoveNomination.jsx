@@ -1,4 +1,4 @@
-import { Typography } from "@material-ui/core"
+import { Typography } from "@material-ui/core";
 import DeleteForeverIcon from '@material-ui/icons/DeleteForever';
 
 export default function RemoveNomination() {

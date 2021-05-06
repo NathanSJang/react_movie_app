@@ -38,11 +38,11 @@ useEffect(() => {
 function handleAddNomination(movie) {
   const newNomination = [...nominations, movie];
   setNominations(newNomination);
-  saveToLocalStorage(newNomination)
+  saveToLocalStorage(newNomination);
 }
 
 function handleRemoveNomination(movie) {
-  const newNomination = nominations.filter((nomination) => nomination.imdbID !== movie.imdbID)
+  const newNomination = nominations.filter((nomination) => nomination.imdbID !== movie.imdbID);
   setNominations(newNomination);
 }
 
