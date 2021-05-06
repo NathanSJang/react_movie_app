@@ -32,7 +32,9 @@ function App() {
 
 useEffect(() => {
   const nominatedMovies = JSON.parse(localStorage.getItem('react-moive-nominations'));
-  setNominations(nominatedMovies);
+  if(nominatedMovies) {
+    setNominations(nominatedMovies);
+  }
 }, []);
 
 function handleAddNomination(movie) {
