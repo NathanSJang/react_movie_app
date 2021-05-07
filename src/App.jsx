@@ -1,5 +1,5 @@
 
-import { useState, useEffect, } from "react";
+import { useState, useEffect } from "react";
 import { Container } from "@material-ui/core";
 import MovieList from "./components/MovieList";
 import SectionTitle from "./components/SectionTitle";
